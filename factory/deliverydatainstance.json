@@ -1,0 +1,9 @@
+{
+	"name": "deliverydatainstance",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "02dfc23a-2d93-4431-a796-1daf0934fe09",
+		"tenantId": "90d12e33-ad5e-4e82-8b5e-82bff0658ae0"
+	}
+}
