@@ -87,7 +87,12 @@
 				"SalesSALSWINVCTB derive(IY = right(INVC_CNFM_DATE,4),",
 				"          ID = left(INVC_CNFM_DATE,2),",
 				"          IM = substring(INVC_CNFM_DATE,4,2),",
-				"          {Invoice_Cofirmation_No.} = toString(toTimestamp(toString(byName('INVC_CNFM_DATE')), 'dd-MM-yyyy') , 'dd/MM/yyyy')) ~> Transformation"
+				"          {Invoice_Cofirmation_No.} = toString(toTimestamp(toString(byName('INVC_CNFM_DATE')), 'dd-MM-yyyy') , 'dd/MM/yyyy')\r",
+				",",
+				"          InvDate = toString(toTimestamp(toString(byName('INVC_DATE')), 'dd-MM-yyyy') , 'dd/MM/yyyy')\r",
+				",",
+				"          Delivery_Date = toString(toTimestamp(toString(byName('INVC_DLVRY_DATE')), 'dd-MM-yyyy') , 'dd/MM/yyyy')\r",
+				") ~> Transformation"
 			]
 		}
 	}
