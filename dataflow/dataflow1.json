@@ -93,6 +93,15 @@
 				},
 				{
 					"name": "SDENSCfilter"
+				},
+				{
+					"name": "select3"
+				},
+				{
+					"name": "filter1"
+				},
+				{
+					"name": "lookup3"
 				}
 			],
 			"scriptLines": [
@@ -670,11 +679,25 @@
 				"SalesCRMSDENSC select(mapColumn(",
 				"          ENSC_GRP_CODE,",
 				"          EQRY_SUB_SRC_CODE = ENSC_CODE,",
-				"          ENSC_NAME",
+				"          ENSC_NAME,",
+				"          ENSC_GRP_NAME",
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> SDENSCselect",
-				"SDENSCselect filter(ENSC_GRP_CODE=='DSO0001') ~> SDENSCfilter"
+				"SDENSCselect filter(ENSC_GRP_CODE=='DSO0001') ~> SDENSCfilter",
+				"SDENSCfilter select(mapColumn(",
+				"          ENSC_GRP_CODE,",
+				"          EQRY_SUB_SRC_CODE,",
+				"          ENSC_GRP_NAME",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select3",
+				"select3 filter(ENSC_GRP_CODE=='DSO0001') ~> filter1",
+				"lookup2, filter1 lookup(AfterSalesCRMSCEQRY2@EQRY_SUB_SRC_CODE == select3@EQRY_SUB_SRC_CODE,",
+				"     multiple: false,",
+				"     pickup: 'first',",
+				"     asc(select3@ENSC_GRP_NAME, false),",
+				"     broadcast: 'auto')~> lookup3"
 			]
 		}
 	}
