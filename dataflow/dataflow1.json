@@ -79,43 +79,16 @@
 					"name": "join1"
 				},
 				{
-					"name": "Transformation2"
-				},
-				{
-					"name": "CMCDselect"
-				},
-				{
-					"name": "CMCDfilter"
-				},
-				{
-					"name": "lookup1"
-				},
-				{
 					"name": "SDENSCselect"
 				},
 				{
 					"name": "SDENSCfilter"
 				},
 				{
-					"name": "lookup2"
-				},
-				{
-					"name": "derivedColumn1"
-				},
-				{
 					"name": "SDENSCselect2"
 				},
 				{
 					"name": "SDENSCfilter2"
-				},
-				{
-					"name": "lookup3"
-				},
-				{
-					"name": "derivedColumn2"
-				},
-				{
-					"name": "lookup4"
 				},
 				{
 					"name": "CMCDselect2"
@@ -128,6 +101,36 @@
 				},
 				{
 					"name": "CMCDfilter3"
+				},
+				{
+					"name": "derivedColumn1"
+				},
+				{
+					"name": "CMMCMCDselect"
+				},
+				{
+					"name": "CMMCMCDfilter"
+				},
+				{
+					"name": "lookup1"
+				},
+				{
+					"name": "lookup2"
+				},
+				{
+					"name": "derivedColumn2"
+				},
+				{
+					"name": "lookup3"
+				},
+				{
+					"name": "derivedColumn3"
+				},
+				{
+					"name": "lookup4"
+				},
+				{
+					"name": "lookup5"
 				}
 			],
 			"scriptLines": [
@@ -492,59 +495,26 @@
 				"     matchType:'exact',",
 				"     ignoreSpaces: false,",
 				"     broadcast: 'auto')~> join1",
-				"AfterSalesCRMSCEQRY derive({\"Finance/Not Finance\"} = iif(EQRY_FNCE_YN=='Y','Finance','Not-Finance')) ~> Transformation2",
-				"AfterSalesCMMCMCD select(mapColumn(",
-				"          EQRY_CTGR_CODE = CMM_CODE,",
-				"          CMM_CODE_NAME,",
-				"          CMM_GRP_CODE",
-				"     ),",
-				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> CMCDselect",
-				"CMCDselect filter(CMM_GRP_CODE=='DSO0012') ~> CMCDfilter",
-				"Transformation2, CMCDfilter lookup(AfterSalesCRMSCEQRY@EQRY_CTGR_CODE == CMCDselect@EQRY_CTGR_CODE,",
-				"     multiple: false,",
-				"     pickup: 'first',",
-				"     asc(CMM_CODE_NAME, false),",
-				"     broadcast: 'auto')~> lookup1",
 				"SDENSC select(mapColumn(",
 				"          ENSC_GRP_CODE,",
 				"          EQRY_SUB_SRC_CODE = ENSC_CODE,",
-				"          ENSC_NAME",
+				"          Enquiry_Sub_Source_Name = ENSC_NAME",
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> SDENSCselect",
 				"SDENSCselect filter(ENSC_GRP_CODE=='DSO0001') ~> SDENSCfilter",
-				"lookup1, SDENSCfilter lookup(AfterSalesCRMSCEQRY@EQRY_SUB_SRC_CODE == SDENSCselect@EQRY_SUB_SRC_CODE,",
-				"     multiple: false,",
-				"     pickup: 'first',",
-				"     asc(ENSC_NAME, false),",
-				"     broadcast: 'auto')~> lookup2",
-				"lookup2 derive(Enquiry_Sub_Source_Name = upper(iif(Enquiry_Sub_Source_Name=='Ads', 'Advertisements',Enquiry_Sub_Source_Name))\r",
-				"\r",
-				") ~> derivedColumn1",
 				"SDENSC2 select(mapColumn(",
 				"          ENSC_GRP_CODE,",
 				"          EQRY_SUB_SRC_CODE = ENSC_CODE,",
-				"          ENSC_GRP_NAME",
+				"          Enquiry_Source = ENSC_GRP_NAME",
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> SDENSCselect2",
 				"SDENSCselect2 filter(ENSC_GRP_CODE=='DSO0001') ~> SDENSCfilter2",
-				"lookup2, SDENSCfilter2 lookup(SDENSCselect@EQRY_SUB_SRC_CODE == SDENSCselect2@EQRY_SUB_SRC_CODE,",
-				"     multiple: false,",
-				"     pickup: 'first',",
-				"     asc(ENSC_GRP_NAME, false),",
-				"     broadcast: 'auto')~> lookup3",
-				"lookup3 derive(Enquiry_Source = upper(iif(Enquiry_Source=='Ads', 'Advertisements',Enquiry_Source))) ~> derivedColumn2",
-				"lookup3, CMCDfilter2 lookup(AfterSalesCRMSCEQRY@EQRY_STAT == CMCDselect2@EQRY_STAT,",
-				"     multiple: false,",
-				"     pickup: 'first',",
-				"     asc(CMCDselect2@CMM_CODE_NAME, false),",
-				"     broadcast: 'auto')~> lookup4",
 				"CMMCMCD select(mapColumn(",
 				"          CMM_GRP_CODE,",
 				"          EQRY_STAT = CMM_CODE,",
-				"          CMM_CODE_NAME",
+				"          Enquiry_Status = CMM_CODE_NAME",
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> CMCDselect2",
@@ -552,11 +522,47 @@
 				"CMMCMCD2 select(mapColumn(",
 				"          CMM_GRP_CODE,",
 				"          EQRY_TYPE = CMM_CODE,",
-				"          CMM_CODE_NAME",
+				"          Enquiry_Type2 = CMM_CODE_NAME",
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> CMCDselect3",
-				"CMCDselect3 filter(ERROR_FUNCTION('CMM_GRP_CODE==__SINGLE_QUOTE__DSO0013__SINGLE_QUOTE__ and CMM_CODE<>__SINGLE_QUOTE__N__SINGLE_QUOTE__')) ~> CMCDfilter3"
+				"CMCDselect3 filter(CMM_GRP_CODE=='DSO0013' && EQRY_TYPE!='N') ~> CMCDfilter3",
+				"AfterSalesCRMSCEQRY derive({\"Finance/Not Finance\"} = iif(EQRY_FNCE_YN=='Y','Finance','Not-Finance')) ~> derivedColumn1",
+				"AfterSalesCMMCMCD select(mapColumn(",
+				"          CMM_GRP_CODE,",
+				"          EQRY_CTGR_CODE = CMM_CODE,",
+				"          Enquiry_Category_Type = CMM_CODE_NAME",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> CMMCMCDselect",
+				"CMMCMCDselect filter(CMM_GRP_CODE=='DSO0012') ~> CMMCMCDfilter",
+				"derivedColumn1, CMMCMCDfilter lookup(AfterSalesCRMSCEQRY@EQRY_CTGR_CODE == CMMCMCDselect@EQRY_CTGR_CODE,",
+				"     multiple: false,",
+				"     pickup: 'first',",
+				"     asc(Enquiry_Category_Type, false),",
+				"     broadcast: 'auto')~> lookup1",
+				"lookup1, SDENSCfilter lookup(AfterSalesCRMSCEQRY@EQRY_SUB_SRC_CODE == SDENSCselect@EQRY_SUB_SRC_CODE,",
+				"     multiple: false,",
+				"     pickup: 'first',",
+				"     asc(Enquiry_Sub_Source_Name, false),",
+				"     broadcast: 'auto')~> lookup2",
+				"lookup2 derive(Enquiry_Sub_Source_Name = upper(iif(Enquiry_Sub_Source_Name=='Ads', 'Advertisements',Enquiry_Sub_Source_Name))) ~> derivedColumn2",
+				"derivedColumn2, SDENSCfilter2 lookup(AfterSalesCRMSCEQRY@EQRY_SUB_SRC_CODE == SDENSCselect2@EQRY_SUB_SRC_CODE,",
+				"     multiple: false,",
+				"     pickup: 'first',",
+				"     asc(Enquiry_Source, false),",
+				"     broadcast: 'auto')~> lookup3",
+				"lookup3 derive(Enquiry_Source = upper(iif(Enquiry_Source=='Ads', 'Advertisements',Enquiry_Source))) ~> derivedColumn3",
+				"derivedColumn3, CMCDfilter2 lookup(AfterSalesCRMSCEQRY@EQRY_STAT == CMCDselect2@EQRY_STAT,",
+				"     multiple: false,",
+				"     pickup: 'first',",
+				"     asc(Enquiry_Status, false),",
+				"     broadcast: 'auto')~> lookup4",
+				"lookup4, CMCDfilter3 lookup(AfterSalesCRMSCEQRY@EQRY_TYPE == CMCDselect3@EQRY_TYPE,",
+				"     multiple: false,",
+				"     pickup: 'first',",
+				"     asc(Enquiry_Type2, false),",
+				"     broadcast: 'auto')~> lookup5"
 			]
 		}
 	}
