@@ -52,6 +52,13 @@
 						"type": "DatasetReference"
 					},
 					"name": "CMMCMCD"
+				},
+				{
+					"dataset": {
+						"referenceName": "AfterSalesCMMCMCD",
+						"type": "DatasetReference"
+					},
+					"name": "CMMCMCD2"
 				}
 			],
 			"sinks": [],
@@ -111,10 +118,16 @@
 					"name": "lookup4"
 				},
 				{
-					"name": "CMMCMCDselect"
+					"name": "CMCDselect2"
 				},
 				{
-					"name": "CMMCMCDfilter"
+					"name": "CMCDfilter2"
+				},
+				{
+					"name": "CMCDselect3"
+				},
+				{
+					"name": "CMCDfilter3"
 				}
 			],
 			"scriptLines": [
@@ -355,6 +368,27 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> CMMCMCD",
+				"source(output(",
+				"          CMPN_NO as string,",
+				"          CORP_NO as string,",
+				"          CMM_GRP_CODE as string,",
+				"          CMM_CODE as string,",
+				"          CMM_CODE_NAME as string,",
+				"          REMARK_1 as string,",
+				"          REMARK_2 as string,",
+				"          REMARK_3 as string,",
+				"          REMARK_4 as string,",
+				"          REMARK_5 as string,",
+				"          USED_YN as string,",
+				"          PRIORITY as string,",
+				"          CRTE_EMP_NO as string,",
+				"          CRTE_DTIME as string,",
+				"          UPDT_EMP_NO as string,",
+				"          UPDT_DTIME as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> CMMCMCD2",
 				"SalesSALSWINVCTB derive(IY = right(INVC_CNFM_DATE,4),",
 				"          ID = left(INVC_CNFM_DATE,2),",
 				"          IM = substring(INVC_CNFM_DATE,4,2),",
@@ -502,18 +536,27 @@
 				"     asc(ENSC_GRP_NAME, false),",
 				"     broadcast: 'auto')~> lookup3",
 				"lookup3 derive(Enquiry_Source = upper(iif(Enquiry_Source=='Ads', 'Advertisements',Enquiry_Source))) ~> derivedColumn2",
-				"lookup3 lookup(ERROR_FUNCTION('') == ERROR_FUNCTION(''),",
+				"lookup3, CMCDfilter2 lookup(AfterSalesCRMSCEQRY@EQRY_STAT == CMCDselect2@EQRY_STAT,",
 				"     multiple: false,",
-				"     pickup: 'any',",
+				"     pickup: 'first',",
+				"     asc(CMCDselect2@CMM_CODE_NAME, false),",
 				"     broadcast: 'auto')~> lookup4",
 				"CMMCMCD select(mapColumn(",
 				"          CMM_GRP_CODE,",
-				"          CMM_CODE,",
+				"          EQRY_STAT = CMM_CODE,",
 				"          CMM_CODE_NAME",
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> CMMCMCDselect",
-				"CMMCMCDselect filter(CMM_GRP_CODE=='DSO0002') ~> CMMCMCDfilter"
+				"     skipDuplicateMapOutputs: true) ~> CMCDselect2",
+				"CMCDselect2 filter(CMM_GRP_CODE=='DSO0002') ~> CMCDfilter2",
+				"CMMCMCD2 select(mapColumn(",
+				"          CMM_GRP_CODE,",
+				"          EQRY_TYPE = CMM_CODE,",
+				"          CMM_CODE_NAME",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> CMCDselect3",
+				"CMCDselect3 filter(ERROR_FUNCTION('CMM_GRP_CODE==__SINGLE_QUOTE__DSO0013__SINGLE_QUOTE__ and CMM_CODE<>__SINGLE_QUOTE__N__SINGLE_QUOTE__')) ~> CMCDfilter3"
 			]
 		}
 	}
