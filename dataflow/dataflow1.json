@@ -151,7 +151,7 @@
 					"name": "lookup5"
 				},
 				{
-					"name": "SalesCRMSCEQCR1"
+					"name": "Renaming3"
 				},
 				{
 					"name": "join1"
@@ -160,22 +160,37 @@
 					"name": "Renaming2"
 				},
 				{
-					"name": "SALSOBKNGselect"
+					"name": "Renaming4"
 				},
 				{
-					"name": "Insucompselect"
+					"name": "Renaming5"
+				},
+				{
+					"name": "select1"
 				},
 				{
 					"name": "join2"
 				},
 				{
+					"name": "select2"
+				},
+				{
 					"name": "join3"
+				},
+				{
+					"name": "select3"
 				},
 				{
 					"name": "join4"
 				},
 				{
+					"name": "select4"
+				},
+				{
 					"name": "join5"
+				},
+				{
+					"name": "select5"
 				}
 			],
 			"scriptLines": [
@@ -737,7 +752,7 @@
 				"          EQCR_EXPECTED_PRICE",
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> SalesCRMSCEQCR1",
+				"     skipDuplicateMapOutputs: true) ~> Renaming3",
 				"Renaming, Renaming1 join(Renaming@{Dealer_No.} == Renaming1@{Dealer_No.},",
 				"     joinType:'left',",
 				"     matchType:'exact',",
@@ -819,7 +834,7 @@
 				"          BKNG_BILL_TO_VILLAGE",
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> SALSOBKNGselect",
+				"     skipDuplicateMapOutputs: true) ~> Renaming4",
 				"InsuCompName select(mapColumn(",
 				"          INVC_VIN_NO,",
 				"          INVC_DLVRY_DATE,",
@@ -834,27 +849,57 @@
 				"          INSR_DATE",
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> Insucompselect",
-				"Renaming1, Renaming2 join(Renaming1@{Dealer_No.} == Renaming2@{Dealer_No.},",
+				"     skipDuplicateMapOutputs: true) ~> Renaming5",
+				"join1 select(mapColumn(",
+				"          each(match(/* All input columns */ true()),",
+				"               /* Input name */ $$ = $$)",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select1",
+				"select1, Renaming2 join(select1@{Dealer_No.} == Renaming2@{Dealer_No.},",
 				"     joinType:'left',",
 				"     matchType:'exact',",
 				"     ignoreSpaces: false,",
 				"     broadcast: 'auto')~> join2",
-				"Renaming2, SalesCRMSCEQCR1 join(Renaming2@{Dealer_No.} == SalesCRMSCEQCR1@{Dealer_No.},",
+				"join2 select(mapColumn(",
+				"          each(match(/* All input columns */ true()),",
+				"               /* Input name */ $$ = $$)",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select2",
+				"select2, Renaming3 join(select2@{Dealer_No.} == Renaming3@{Dealer_No.},",
 				"     joinType:'left',",
 				"     matchType:'exact',",
 				"     ignoreSpaces: false,",
 				"     broadcast: 'auto')~> join3",
-				"SalesCRMSCEQCR1, SALSOBKNGselect join(SalesCRMSCEQCR1@{Dealer_No.} == SALSOBKNGselect@{Dealer_No.},",
+				"join3 select(mapColumn(",
+				"          each(match(/* All input columns */ true()),",
+				"               /* Input name */ $$ = $$)",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select3",
+				"select3, Renaming4 join(select3@{Dealer_No.} == Renaming4@{Dealer_No.},",
 				"     joinType:'left',",
 				"     matchType:'exact',",
 				"     ignoreSpaces: false,",
 				"     broadcast: 'auto')~> join4",
-				"SALSOBKNGselect, Insucompselect join(SALSOBKNGselect@{Dealer_No.} == Insucompselect@{Dealer_No.},",
+				"join4 select(mapColumn(",
+				"          each(match(/* All input columns */ true()),",
+				"               /* Input name */ $$ = $$)",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select4",
+				"select4, Renaming5 join(select4@{Dealer_No.} == Renaming5@{Dealer_No.},",
 				"     joinType:'left',",
 				"     matchType:'exact',",
 				"     ignoreSpaces: false,",
-				"     broadcast: 'auto')~> join5"
+				"     broadcast: 'auto')~> join5",
+				"join5 select(mapColumn(",
+				"          each(match(/* All input columns */ true()),",
+				"               /* Input name */ $$ = $$)",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select5"
 			]
 		}
 	}
