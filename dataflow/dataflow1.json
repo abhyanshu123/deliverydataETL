@@ -75,7 +75,19 @@
 					"name": "SALSOBKNG"
 				}
 			],
-			"sinks": [],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "Outputdata",
+						"type": "DatasetReference"
+					},
+					"name": "sink1",
+					"rejectedDataLinkedService": {
+						"referenceName": "AzureDataLakeStorage1",
+						"type": "LinkedServiceReference"
+					}
+				}
+			],
 			"transformations": [
 				{
 					"name": "Transformation"
@@ -1223,7 +1235,16 @@
 				"select2 derive(joinkey = concat({Dealer_No.}, {Link_Enquiry_No.})) ~> derivedColumn8",
 				"Renaming3 derive(joinkey = concat({Dealer_No.}, {Link_Enquiry_No.})) ~> derivedColumn9",
 				"select3 derive(joinkey = concat({Dealer_No.}, {Link_Enquiry_No.})) ~> derivedColumn10",
-				"Renaming4 derive(joinkey = concat({Dealer_No.}, {Link_Enquiry_No.})) ~> derivedColumn11"
+				"Renaming4 derive(joinkey = concat({Dealer_No.}, {Link_Enquiry_No.})) ~> derivedColumn11",
+				"select4 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     partitionFileNames:['Outputdata.csv'],",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     partitionBy('hash', 1)) ~> sink1"
 			]
 		}
 	}
