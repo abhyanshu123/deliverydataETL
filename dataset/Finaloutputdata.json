@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "Outputdata.csv",
+				"fileName": "finaloutputd.csv",
 				"folderPath": "output",
 				"fileSystem": "profileddata"
 			},
