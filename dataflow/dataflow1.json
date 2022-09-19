@@ -75,7 +75,11 @@
 					"name": "SALSOBKNG"
 				}
 			],
-			"sinks": [],
+			"sinks": [
+				{
+					"name": "sink1"
+				}
+			],
 			"transformations": [
 				{
 					"name": "Transformation"
@@ -1195,7 +1199,11 @@
 				"Renaming3 derive(joinkey = concat({Dealer_No.}, {Link_Enquiry_No.})) ~> derivedColumn9",
 				"select3 derive(joinkey = concat({Dealer_No.}, {Link_Enquiry_No.}),",
 				"          Flag = 'Delivery') ~> derivedColumn10",
-				"Renaming4 derive(joinkey = concat({Dealer_No.}, {Link_Enquiry_No.})) ~> derivedColumn11"
+				"Renaming4 derive(joinkey = concat({Dealer_No.}, {Link_Enquiry_No.})) ~> derivedColumn11",
+				"select4 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sink1"
 			]
 		}
 	}
