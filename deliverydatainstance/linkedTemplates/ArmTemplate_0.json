@@ -466,6 +466,200 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/Data')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureDataLakeStorage1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileName": "Finaloutputdata.csv",
+						"folderPath": "output",
+						"fileSystem": "profileddata"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "Trader No.",
+						"type": "String"
+					},
+					{
+						"name": "Invoice_No.",
+						"type": "String"
+					},
+					{
+						"name": "Corporation_No.",
+						"type": "String"
+					},
+					{
+						"name": "Company_No.",
+						"type": "String"
+					},
+					{
+						"name": "INVC_TYPE",
+						"type": "String"
+					},
+					{
+						"name": "Inv_Confirm",
+						"type": "String"
+					},
+					{
+						"name": "INVC_DATE",
+						"type": "String"
+					},
+					{
+						"name": "INVC_DLVRY_DATE",
+						"type": "String"
+					},
+					{
+						"name": "Order No.",
+						"type": "String"
+					},
+					{
+						"name": "INVC_CRTE_DTIME",
+						"type": "String"
+					},
+					{
+						"name": "INVC_CRTE_EMP_NO",
+						"type": "String"
+					},
+					{
+						"name": "Lead No.",
+						"type": "String"
+					},
+					{
+						"name": "Price",
+						"type": "String"
+					},
+					{
+						"name": "Invoice_Cofirmation_No.",
+						"type": "String"
+					},
+					{
+						"name": "InvDate",
+						"type": "String"
+					},
+					{
+						"name": "Delivery_Date",
+						"type": "String"
+					},
+					{
+						"name": "TEAM_LEADER_JOINING_DATE",
+						"type": "String"
+					},
+					{
+						"name": "KEC_NAME",
+						"type": "String"
+					},
+					{
+						"name": "Team_Leader_Name",
+						"type": "String"
+					},
+					{
+						"name": "Team_Leader_Code",
+						"type": "String"
+					},
+					{
+						"name": "\"Active/Inactive\"",
+						"type": "String"
+					},
+					{
+						"name": "link_date",
+						"type": "String"
+					},
+					{
+						"name": "EQRY_SRC_CODE",
+						"type": "String"
+					},
+					{
+						"name": "Lead_STAT",
+						"type": "String"
+					},
+					{
+						"name": "Lead_TYPE",
+						"type": "String"
+					},
+					{
+						"name": "EQRY_CRTE_DTIME",
+						"type": "String"
+					},
+					{
+						"name": "EQRY_SUB_SRC_CODE",
+						"type": "String"
+					},
+					{
+						"name": "Lead_Category_Type",
+						"type": "String"
+					},
+					{
+						"name": "Lead_Sub_Source_Name",
+						"type": "String"
+					},
+					{
+						"name": "Lead_Source",
+						"type": "String"
+					},
+					{
+						"name": "Lead_Status",
+						"type": "String"
+					},
+					{
+						"name": "Lead_QTY",
+						"type": "String"
+					},
+					{
+						"name": "Booking_Date",
+						"type": "String"
+					},
+					{
+						"name": "Model_Code",
+						"type": "String"
+					},
+					{
+						"name": "TRIM_Code",
+						"type": "String"
+					},
+					{
+						"name": "ORDER_BILL_TO_STATE",
+						"type": "String"
+					},
+					{
+						"name": "ORDER_BILL_TO_CITY",
+						"type": "String"
+					},
+					{
+						"name": "INVC_CITY_CODE",
+						"type": "String"
+					},
+					{
+						"name": "INVC_RGN_CODE",
+						"type": "String"
+					},
+					{
+						"name": "INVC_STCD_CODE",
+						"type": "String"
+					},
+					{
+						"name": "Flag",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureDataLakeStorage1')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/Finaloutput')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -1757,6 +1951,200 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/final')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureDataLakeStorage1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileName": "final.csv",
+						"folderPath": "output",
+						"fileSystem": "profileddata"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "Trader No.",
+						"type": "String"
+					},
+					{
+						"name": "Invoice_No.",
+						"type": "String"
+					},
+					{
+						"name": "Corporation_No.",
+						"type": "String"
+					},
+					{
+						"name": "Company_No.",
+						"type": "String"
+					},
+					{
+						"name": "INVC_TYPE",
+						"type": "String"
+					},
+					{
+						"name": "Inv_Confirm",
+						"type": "String"
+					},
+					{
+						"name": "INVC_DATE",
+						"type": "String"
+					},
+					{
+						"name": "INVC_DLVRY_DATE",
+						"type": "String"
+					},
+					{
+						"name": "Order No.",
+						"type": "String"
+					},
+					{
+						"name": "INVC_CRTE_DTIME",
+						"type": "String"
+					},
+					{
+						"name": "INVC_CRTE_EMP_NO",
+						"type": "String"
+					},
+					{
+						"name": "Lead No.",
+						"type": "String"
+					},
+					{
+						"name": "Price",
+						"type": "String"
+					},
+					{
+						"name": "Invoice_Cofirmation_No.",
+						"type": "String"
+					},
+					{
+						"name": "InvDate",
+						"type": "String"
+					},
+					{
+						"name": "Delivery_Date",
+						"type": "String"
+					},
+					{
+						"name": "TEAM_LEADER_JOINING_DATE",
+						"type": "String"
+					},
+					{
+						"name": "KEC_NAME",
+						"type": "String"
+					},
+					{
+						"name": "Team_Leader_Name",
+						"type": "String"
+					},
+					{
+						"name": "Team_Leader_Code",
+						"type": "String"
+					},
+					{
+						"name": "\"Active/Inactive\"",
+						"type": "String"
+					},
+					{
+						"name": "link_date",
+						"type": "String"
+					},
+					{
+						"name": "EQRY_SRC_CODE",
+						"type": "String"
+					},
+					{
+						"name": "Lead_STAT",
+						"type": "String"
+					},
+					{
+						"name": "Lead_TYPE",
+						"type": "String"
+					},
+					{
+						"name": "EQRY_CRTE_DTIME",
+						"type": "String"
+					},
+					{
+						"name": "EQRY_SUB_SRC_CODE",
+						"type": "String"
+					},
+					{
+						"name": "Lead_Category_Type",
+						"type": "String"
+					},
+					{
+						"name": "Lead_Sub_Source_Name",
+						"type": "String"
+					},
+					{
+						"name": "Lead_Source",
+						"type": "String"
+					},
+					{
+						"name": "Lead_Status",
+						"type": "String"
+					},
+					{
+						"name": "Lead_QTY",
+						"type": "String"
+					},
+					{
+						"name": "Booking_Date",
+						"type": "String"
+					},
+					{
+						"name": "Model_Code",
+						"type": "String"
+					},
+					{
+						"name": "TRIM_Code",
+						"type": "String"
+					},
+					{
+						"name": "ORDER_BILL_TO_STATE",
+						"type": "String"
+					},
+					{
+						"name": "ORDER_BILL_TO_CITY",
+						"type": "String"
+					},
+					{
+						"name": "INVC_CITY_CODE",
+						"type": "String"
+					},
+					{
+						"name": "INVC_RGN_CODE",
+						"type": "String"
+					},
+					{
+						"name": "INVC_STCD_CODE",
+						"type": "String"
+					},
+					{
+						"name": "Flag",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureDataLakeStorage1')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/dataflow1')]",
 			"type": "Microsoft.DataFactory/factories/dataflows",
 			"apiVersion": "2018-06-01",
@@ -2993,6 +3381,139 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/dataflow2')]",
+			"type": "Microsoft.DataFactory/factories/dataflows",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"type": "MappingDataFlow",
+				"typeProperties": {
+					"sources": [
+						{
+							"dataset": {
+								"referenceName": "Data",
+								"type": "DatasetReference"
+							},
+							"name": "source1"
+						}
+					],
+					"sinks": [
+						{
+							"dataset": {
+								"referenceName": "final",
+								"type": "DatasetReference"
+							},
+							"name": "sink1"
+						}
+					],
+					"transformations": [],
+					"scriptLines": [
+						"source(output(",
+						"          {Trader No.} as string,",
+						"          {Invoice_No.} as string,",
+						"          {Corporation_No.} as string,",
+						"          {Company_No.} as string,",
+						"          INVC_TYPE as string,",
+						"          Inv_Confirm as string,",
+						"          INVC_DATE as string,",
+						"          INVC_DLVRY_DATE as timestamp,",
+						"          {Order No.} as string,",
+						"          INVC_CRTE_DTIME as string,",
+						"          INVC_CRTE_EMP_NO as string,",
+						"          {Lead No.} as string,",
+						"          Price as string,",
+						"          {Invoice_Cofirmation_No.} as string,",
+						"          InvDate as timestamp,",
+						"          Delivery_Date as timestamp,",
+						"          TEAM_LEADER_JOINING_DATE as timestamp,",
+						"          KEC_NAME as string,",
+						"          Team_Leader_Name as string,",
+						"          Team_Leader_Code as string,",
+						"          {\"Active/Inactive\"} as string,",
+						"          link_date as string,",
+						"          EQRY_SRC_CODE as string,",
+						"          Lead_STAT as string,",
+						"          Lead_TYPE as string,",
+						"          EQRY_CRTE_DTIME as string,",
+						"          EQRY_SUB_SRC_CODE as string,",
+						"          Lead_Category_Type as string,",
+						"          Lead_Sub_Source_Name as string,",
+						"          Lead_Source as string,",
+						"          Lead_Status as string,",
+						"          Lead_QTY as integer,",
+						"          Booking_Date as string,",
+						"          Model_Code as string,",
+						"          TRIM_Code as string,",
+						"          ORDER_BILL_TO_STATE as string,",
+						"          ORDER_BILL_TO_CITY as string,",
+						"          INVC_CITY_CODE as string,",
+						"          INVC_RGN_CODE as string,",
+						"          INVC_STCD_CODE as string,",
+						"          Flag as string",
+						"     ),",
+						"     allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     ignoreNoFilesFound: false) ~> source1",
+						"source1 sink(allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     input(",
+						"          {Trader No.} as string,",
+						"          {Invoice_No.} as string,",
+						"          {Corporation_No.} as string,",
+						"          {Company_No.} as string,",
+						"          INVC_TYPE as string,",
+						"          Inv_Confirm as string,",
+						"          INVC_DATE as string,",
+						"          INVC_DLVRY_DATE as string,",
+						"          {Order No.} as string,",
+						"          INVC_CRTE_DTIME as string,",
+						"          INVC_CRTE_EMP_NO as string,",
+						"          {Lead No.} as string,",
+						"          Price as string,",
+						"          {Invoice_Cofirmation_No.} as string,",
+						"          InvDate as string,",
+						"          Delivery_Date as string,",
+						"          TEAM_LEADER_JOINING_DATE as string,",
+						"          KEC_NAME as string,",
+						"          Team_Leader_Name as string,",
+						"          Team_Leader_Code as string,",
+						"          {\"Active/Inactive\"} as string,",
+						"          link_date as string,",
+						"          EQRY_SRC_CODE as string,",
+						"          Lead_STAT as string,",
+						"          Lead_TYPE as string,",
+						"          EQRY_CRTE_DTIME as string,",
+						"          EQRY_SUB_SRC_CODE as string,",
+						"          Lead_Category_Type as string,",
+						"          Lead_Sub_Source_Name as string,",
+						"          Lead_Source as string,",
+						"          Lead_Status as string,",
+						"          Lead_QTY as string,",
+						"          Booking_Date as string,",
+						"          Model_Code as string,",
+						"          TRIM_Code as string,",
+						"          ORDER_BILL_TO_STATE as string,",
+						"          ORDER_BILL_TO_CITY as string,",
+						"          INVC_CITY_CODE as string,",
+						"          INVC_RGN_CODE as string,",
+						"          INVC_STCD_CODE as string,",
+						"          Flag as string",
+						"     ),",
+						"     partitionFileNames:['final.csv'],",
+						"     umask: 0022,",
+						"     preCommands: [],",
+						"     postCommands: [],",
+						"     skipDuplicateMapInputs: true,",
+						"     skipDuplicateMapOutputs: true,",
+						"     partitionBy('hash', 1)) ~> sink1"
+					]
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/Data')]",
+				"[concat(variables('factoryId'), '/datasets/final')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/pipeline1')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
@@ -3046,6 +3567,53 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/dataflows/dataflow1')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pipeline2')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "dataflow2",
+						"type": "ExecuteDataFlow",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"dataflow": {
+								"referenceName": "dataflow2",
+								"type": "DataFlowReference",
+								"parameters": {},
+								"datasetParameters": {
+									"source1": {},
+									"sink1": {}
+								}
+							},
+							"staging": {},
+							"compute": {
+								"coreCount": 8,
+								"computeType": "General"
+							},
+							"traceLevel": "Fine"
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/dataflows/dataflow2')]"
 			]
 		}
 	]
