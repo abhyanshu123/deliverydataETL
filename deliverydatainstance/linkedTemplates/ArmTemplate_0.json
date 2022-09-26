@@ -3309,12 +3309,12 @@
 						"          {Company_No.} = select3@{Company_No.},",
 						"          INVC_TYPE,",
 						"          Inv_Confirm,",
-						"          INVC_DATE,",
+						"          Invoice_Date = INVC_DATE,",
 						"          INVC_DLVRY_DATE,",
 						"          {Order No.} = select3@{Booking_No.},",
 						"          INVC_CRTE_DTIME,",
 						"          INVC_CRTE_EMP_NO,",
-						"          {Lead No.} = select3@{Link_Enquiry_No.},",
+						"          Lead_No = select3@{Link_Enquiry_No.},",
 						"          Price = INVC_BASIC_PRCE,",
 						"          {Invoice_Cofirmation_No.},",
 						"          InvDate,",
@@ -3323,27 +3323,29 @@
 						"          KEC_NAME,",
 						"          Team_Leader_Name,",
 						"          Team_Leader_Code,",
-						"          {\"Active/Inactive\"},",
-						"          link_date,",
-						"          EQRY_SRC_CODE,",
-						"          Lead_STAT = EQRY_STAT,",
-						"          Lead_TYPE = EQRY_TYPE,",
+						"          Active_Inactive = {\"Active/Inactive\"},",
+						"          Link_Date = link_date,",
+						"          Lead_SRC_Code = EQRY_SRC_CODE,",
+						"          Lead_Stat = EQRY_STAT,",
+						"          Lead_Type = EQRY_TYPE,",
 						"          EQRY_CRTE_DTIME,",
-						"          EQRY_SUB_SRC_CODE,",
+						"          Lead_Sub_Source_Code = EQRY_SUB_SRC_CODE,",
 						"          Lead_Category_Type = Enquiry_Category_Type,",
 						"          Lead_Sub_Source_Name = Enquiry_Sub_Source_Name,",
 						"          Lead_Source = Enquiry_Source,",
 						"          Lead_Status = Enquiry_Status,",
-						"          Lead_QTY = EQCR_QTY,",
+						"          Lead_Qty = EQCR_QTY,",
 						"          Booking_Date,",
 						"          Model_Code,",
 						"          TRIM_Code = TRIM_Cod,",
-						"          ORDER_BILL_TO_STATE = BKNG_BILL_TO_STATE,",
+						"          ORD_BILL_TO_STATE = BKNG_BILL_TO_STATE,",
 						"          ORDER_BILL_TO_CITY = BKNG_BILL_TO_CITY,",
 						"          INVC_CITY_CODE,",
 						"          INVC_RGN_CODE,",
 						"          INVC_STCD_CODE,",
-						"          Flag",
+						"          Flag,",
+						"          ORD_Cncl_Date = BKNG_CNCL_DATE,",
+						"          Order_Date = Booking_Date",
 						"     ),",
 						"     skipDuplicateMapInputs: true,",
 						"     skipDuplicateMapOutputs: true) ~> select4",
@@ -3378,139 +3380,6 @@
 				"[concat(variables('factoryId'), '/datasets/SALSOBKNG')]",
 				"[concat(variables('factoryId'), '/datasets/Finaloutput')]",
 				"[concat(variables('factoryId'), '/linkedServices/AzureDataLakeStorage1')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/dataflow2')]",
-			"type": "Microsoft.DataFactory/factories/dataflows",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"type": "MappingDataFlow",
-				"typeProperties": {
-					"sources": [
-						{
-							"dataset": {
-								"referenceName": "Data",
-								"type": "DatasetReference"
-							},
-							"name": "source1"
-						}
-					],
-					"sinks": [
-						{
-							"dataset": {
-								"referenceName": "final",
-								"type": "DatasetReference"
-							},
-							"name": "sink1"
-						}
-					],
-					"transformations": [],
-					"scriptLines": [
-						"source(output(",
-						"          {Trader No.} as string,",
-						"          {Invoice_No.} as string,",
-						"          {Corporation_No.} as string,",
-						"          {Company_No.} as string,",
-						"          INVC_TYPE as string,",
-						"          Inv_Confirm as string,",
-						"          INVC_DATE as string,",
-						"          INVC_DLVRY_DATE as timestamp,",
-						"          {Order No.} as string,",
-						"          INVC_CRTE_DTIME as string,",
-						"          INVC_CRTE_EMP_NO as string,",
-						"          {Lead No.} as string,",
-						"          Price as string,",
-						"          {Invoice_Cofirmation_No.} as string,",
-						"          InvDate as timestamp,",
-						"          Delivery_Date as timestamp,",
-						"          TEAM_LEADER_JOINING_DATE as timestamp,",
-						"          KEC_NAME as string,",
-						"          Team_Leader_Name as string,",
-						"          Team_Leader_Code as string,",
-						"          {\"Active/Inactive\"} as string,",
-						"          link_date as string,",
-						"          EQRY_SRC_CODE as string,",
-						"          Lead_STAT as string,",
-						"          Lead_TYPE as string,",
-						"          EQRY_CRTE_DTIME as string,",
-						"          EQRY_SUB_SRC_CODE as string,",
-						"          Lead_Category_Type as string,",
-						"          Lead_Sub_Source_Name as string,",
-						"          Lead_Source as string,",
-						"          Lead_Status as string,",
-						"          Lead_QTY as integer,",
-						"          Booking_Date as string,",
-						"          Model_Code as string,",
-						"          TRIM_Code as string,",
-						"          ORDER_BILL_TO_STATE as string,",
-						"          ORDER_BILL_TO_CITY as string,",
-						"          INVC_CITY_CODE as string,",
-						"          INVC_RGN_CODE as string,",
-						"          INVC_STCD_CODE as string,",
-						"          Flag as string",
-						"     ),",
-						"     allowSchemaDrift: true,",
-						"     validateSchema: false,",
-						"     ignoreNoFilesFound: false) ~> source1",
-						"source1 sink(allowSchemaDrift: true,",
-						"     validateSchema: false,",
-						"     input(",
-						"          {Trader No.} as string,",
-						"          {Invoice_No.} as string,",
-						"          {Corporation_No.} as string,",
-						"          {Company_No.} as string,",
-						"          INVC_TYPE as string,",
-						"          Inv_Confirm as string,",
-						"          INVC_DATE as string,",
-						"          INVC_DLVRY_DATE as string,",
-						"          {Order No.} as string,",
-						"          INVC_CRTE_DTIME as string,",
-						"          INVC_CRTE_EMP_NO as string,",
-						"          {Lead No.} as string,",
-						"          Price as string,",
-						"          {Invoice_Cofirmation_No.} as string,",
-						"          InvDate as string,",
-						"          Delivery_Date as string,",
-						"          TEAM_LEADER_JOINING_DATE as string,",
-						"          KEC_NAME as string,",
-						"          Team_Leader_Name as string,",
-						"          Team_Leader_Code as string,",
-						"          {\"Active/Inactive\"} as string,",
-						"          link_date as string,",
-						"          EQRY_SRC_CODE as string,",
-						"          Lead_STAT as string,",
-						"          Lead_TYPE as string,",
-						"          EQRY_CRTE_DTIME as string,",
-						"          EQRY_SUB_SRC_CODE as string,",
-						"          Lead_Category_Type as string,",
-						"          Lead_Sub_Source_Name as string,",
-						"          Lead_Source as string,",
-						"          Lead_Status as string,",
-						"          Lead_QTY as string,",
-						"          Booking_Date as string,",
-						"          Model_Code as string,",
-						"          TRIM_Code as string,",
-						"          ORDER_BILL_TO_STATE as string,",
-						"          ORDER_BILL_TO_CITY as string,",
-						"          INVC_CITY_CODE as string,",
-						"          INVC_RGN_CODE as string,",
-						"          INVC_STCD_CODE as string,",
-						"          Flag as string",
-						"     ),",
-						"     partitionFileNames:['final.csv'],",
-						"     umask: 0022,",
-						"     preCommands: [],",
-						"     postCommands: [],",
-						"     skipDuplicateMapInputs: true,",
-						"     skipDuplicateMapOutputs: true,",
-						"     partitionBy('hash', 1)) ~> sink1"
-					]
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/Data')]",
-				"[concat(variables('factoryId'), '/datasets/final')]"
 			]
 		},
 		{
@@ -3567,53 +3436,6 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/dataflows/dataflow1')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/pipeline2')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "dataflow2",
-						"type": "ExecuteDataFlow",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "0.12:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"dataflow": {
-								"referenceName": "dataflow2",
-								"type": "DataFlowReference",
-								"parameters": {},
-								"datasetParameters": {
-									"source1": {},
-									"sink1": {}
-								}
-							},
-							"staging": {},
-							"compute": {
-								"coreCount": 8,
-								"computeType": "General"
-							},
-							"traceLevel": "Fine"
-						}
-					}
-				],
-				"policy": {
-					"elapsedTimeMetric": {},
-					"cancelAfter": {}
-				},
-				"annotations": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/dataflows/dataflow2')]"
 			]
 		}
 	]
