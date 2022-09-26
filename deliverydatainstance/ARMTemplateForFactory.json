@@ -3416,7 +3416,7 @@
 						"Renaming4 derive(joinkey = concat({Dealer_No.}, {Link_Enquiry_No.})) ~> derivedColumn11",
 						"select4 sink(allowSchemaDrift: true,",
 						"     validateSchema: false,",
-						"     partitionFileNames:['Finaloutputdata.csv'],",
+						"     partitionFileNames:['Finaloutputdelivery.csv'],",
 						"     umask: 0022,",
 						"     preCommands: [],",
 						"     postCommands: [],",
