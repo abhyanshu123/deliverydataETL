@@ -1,0 +1,57 @@
+{
+	"name": "SourceDataset_blk",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "Product_Master.csv",
+				"folderPath": "datamodeldata",
+				"container": "salesprojectdata"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "PRD_CODE",
+				"type": "String"
+			},
+			{
+				"name": "PRD_CORP_NO",
+				"type": "String"
+			},
+			{
+				"name": "PRD_CMPN_NO",
+				"type": "String"
+			},
+			{
+				"name": "PRD_DSCTN",
+				"type": "String"
+			},
+			{
+				"name": "PRD_Category_Code",
+				"type": "String"
+			},
+			{
+				"name": "PRD_SPEC_CODE",
+				"type": "String"
+			},
+			{
+				"name": "PRD_CRTE_DTIME",
+				"type": "String"
+			},
+			{
+				"name": "PRD_CRTE_EMP_NO",
+				"type": "String"
+			}
+		]
+	}
+}
