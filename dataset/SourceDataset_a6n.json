@@ -1,0 +1,36 @@
+{
+	"name": "SourceDataset_a6n",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "Lead_Master.csv",
+				"container": "master"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "CMPN_NO",
+				"type": "String"
+			},
+			{
+				"name": "CORP_NO",
+				"type": "String"
+			},
+			{
+				"name": "Lead_link_key",
+				"type": "String"
+			}
+		]
+	}
+}

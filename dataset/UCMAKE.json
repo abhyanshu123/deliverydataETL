@@ -1,0 +1,69 @@
+{
+	"name": "UCMAKE",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_ADLS",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "Stage1_SAL_UCMAKE_TB.csv",
+				"fileSystem": "leadrawdata"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "MAKE_CMPN_NO",
+				"type": "String"
+			},
+			{
+				"name": "MAKE_CORP_NO",
+				"type": "String"
+			},
+			{
+				"name": "MAKE_MAKER_CODE",
+				"type": "String"
+			},
+			{
+				"name": "MAKE_FULL_DSCTN",
+				"type": "String"
+			},
+			{
+				"name": "MAKE_SHORT_DSCTN",
+				"type": "String"
+			},
+			{
+				"name": "MAKE_DELT_YN",
+				"type": "String"
+			},
+			{
+				"name": "MAKE_PRIORITY",
+				"type": "String"
+			},
+			{
+				"name": "MAKE_CRTE_DTIME",
+				"type": "String"
+			},
+			{
+				"name": "MAKE_CRTE_EMP_NO",
+				"type": "String"
+			},
+			{
+				"name": "MAKE_UPDT_DTIME",
+				"type": "String"
+			},
+			{
+				"name": "MAKE_UPDT_EMP_NO",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

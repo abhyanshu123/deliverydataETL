@@ -1,0 +1,233 @@
+{
+	"name": "CDCSPM",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_ADLS",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "Stage1_Sales_CRM_CDCSPM_TB.csv",
+				"fileSystem": "leadrawdata"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "CSPM_CMPN_NO",
+				"type": "String"
+			},
+			{
+				"name": "CSPM_CORP_NO",
+				"type": "String"
+			},
+			{
+				"name": "CSPM_DLR_NO",
+				"type": "String"
+			},
+			{
+				"name": "CSPM_CUST_NO",
+				"type": "String"
+			},
+			{
+				"name": "CSPM_CHRG_SALES_EMP_NO",
+				"type": "String"
+			},
+			{
+				"name": "CSPM_CHRG_MNGER_EMP_NO",
+				"type": "String"
+			},
+			{
+				"name": "CSPM_CUST_FRST_NAME",
+				"type": "String"
+			},
+			{
+				"name": "CSPM_CUST_MIDL_NAME",
+				"type": "String"
+			},
+			{
+				"name": "CSPM_CUST_LAST_NAME",
+				"type": "String"
+			},
+			{
+				"name": "CSPM_CUST_FULL_NAME",
+				"type": "String"
+			},
+			{
+				"name": "CSPM_CUST_TYPE",
+				"type": "String"
+			},
+			{
+				"name": "CSPM_SVC_LABR_DSCNT_RATE",
+				"type": "String"
+			},
+			{
+				"name": "CSPM_SVC_PART_DSCNT_RATE",
+				"type": "String"
+			},
+			{
+				"name": "CSPM_BRTH_DATE",
+				"type": "String"
+			},
+			{
+				"name": "CSPM_EMAIL",
+				"type": "String"
+			},
+			{
+				"name": "CSPM_CMPN_TEL_NO",
+				"type": "String"
+			},
+			{
+				"name": "CSPM_PAN_NO",
+				"type": "String"
+			},
+			{
+				"name": "CSPM_CRTE_DTIME",
+				"type": "String"
+			},
+			{
+				"name": "CSPM_CRTE_EMP_NO",
+				"type": "String"
+			},
+			{
+				"name": "CSPM_UPDT_EMP_NO",
+				"type": "String"
+			},
+			{
+				"name": "CSPM_UPDT_DTIME",
+				"type": "String"
+			},
+			{
+				"name": "CSPM_SERVICE_DISCOUNT",
+				"type": "String"
+			},
+			{
+				"name": "CSPM_CSTREG_NO",
+				"type": "String"
+			},
+			{
+				"name": "CSPM_CSTREG_DATE",
+				"type": "String"
+			},
+			{
+				"name": "CSPM_LSTREG_NO",
+				"type": "String"
+			},
+			{
+				"name": "CSPM_LSTREG_DATE",
+				"type": "String"
+			},
+			{
+				"name": "CSPM_REGIST_YN",
+				"type": "String"
+			},
+			{
+				"name": "CSPM_AADHAR_NO",
+				"type": "String"
+			},
+			{
+				"name": "CSPM_GST_NO",
+				"type": "String"
+			},
+			{
+				"name": "CSPM_INSU_GST_NO",
+				"type": "String"
+			},
+			{
+				"name": "CSPM_INSU_CUDT_ADDR",
+				"type": "String"
+			},
+			{
+				"name": "CSPM_INSU_STCD_CODE",
+				"type": "String"
+			},
+			{
+				"name": "CSPM_INSU_COM_NAME",
+				"type": "String"
+			},
+			{
+				"name": "CSPM_INSU_IS_HAP",
+				"type": "String"
+			},
+			{
+				"name": "CSPM_INSU_CON_NO",
+				"type": "String"
+			},
+			{
+				"name": "CSPM_INSU_EMAIL_NO",
+				"type": "String"
+			},
+			{
+				"name": "AADHAR_VRFI",
+				"type": "String"
+			},
+			{
+				"name": "M_MOBL_PHONE_NO",
+				"type": "String"
+			},
+			{
+				"name": "S_MOBL_PHONE_NO",
+				"type": "String"
+			},
+			{
+				"name": "CSPM_CUST_PROPT",
+				"type": "String"
+			},
+			{
+				"name": "CSPM_RESDC_PHONE_NO",
+				"type": "String"
+			},
+			{
+				"name": "CSPM_WHATA_ID",
+				"type": "String"
+			},
+			{
+				"name": "CSPM_CUST_ID",
+				"type": "String"
+			},
+			{
+				"name": "CSPM_SMS_BLK_YN",
+				"type": "String"
+			},
+			{
+				"name": "CSPM_EMAIL_BLK_YN",
+				"type": "String"
+			},
+			{
+				"name": "CSPM_MARRI_DATE",
+				"type": "String"
+			},
+			{
+				"name": "PASS_PORT_NO",
+				"type": "String"
+			},
+			{
+				"name": "DRIVE_LICENSE_NO",
+				"type": "String"
+			},
+			{
+				"name": "SALUT_CODE",
+				"type": "String"
+			},
+			{
+				"name": "FILE_DOC_NO",
+				"type": "String"
+			},
+			{
+				"name": "CSPM_DLR_CODE",
+				"type": "String"
+			},
+			{
+				"name": "CSPM_RESDC_STD",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

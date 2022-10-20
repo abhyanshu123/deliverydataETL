@@ -1,0 +1,217 @@
+{
+	"name": "CDCUDT",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_ADLS",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "Stage1_CRM_CDCUDT_TB.csv",
+				"fileSystem": "leadrawdata"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "CUDT_CMPN_NO",
+				"type": "String"
+			},
+			{
+				"name": "CUDT_CORP_NO",
+				"type": "String"
+			},
+			{
+				"name": "CUDT_DLR_NO",
+				"type": "String"
+			},
+			{
+				"name": "CUDT_CUST_NO",
+				"type": "String"
+			},
+			{
+				"name": "CUDT_SEX_TYPE",
+				"type": "String"
+			},
+			{
+				"name": "CUDT_RPLCE_PLCY_TYPE",
+				"type": "String"
+			},
+			{
+				"name": "CUDT_CMPN_NAME",
+				"type": "String"
+			},
+			{
+				"name": "CUDT_PSTCD_CODE",
+				"type": "String"
+			},
+			{
+				"name": "CUDT_PCITY_CODE",
+				"type": "String"
+			},
+			{
+				"name": "CUDT_PADDR1",
+				"type": "String"
+			},
+			{
+				"name": "CUDT_PADDR2",
+				"type": "String"
+			},
+			{
+				"name": "CUDT_PADDR3",
+				"type": "String"
+			},
+			{
+				"name": "CUDT_PPIN_CODE",
+				"type": "String"
+			},
+			{
+				"name": "CUDT_PLCTY_CODE",
+				"type": "String"
+			},
+			{
+				"name": "CUDT_JOB_CODE",
+				"type": "String"
+			},
+			{
+				"name": "CUDT_DSITN_CODE",
+				"type": "String"
+			},
+			{
+				"name": "CUDT_CMPN_TYPE",
+				"type": "String"
+			},
+			{
+				"name": "CUDT_DPTMT_NAME",
+				"type": "String"
+			},
+			{
+				"name": "CUDT_BIZ_TYPE",
+				"type": "String"
+			},
+			{
+				"name": "CUDT_OSTCD_CODE",
+				"type": "String"
+			},
+			{
+				"name": "CUDT_OCITY_CODE",
+				"type": "String"
+			},
+			{
+				"name": "CUDT_OADDR1",
+				"type": "String"
+			},
+			{
+				"name": "CUDT_OADDR2",
+				"type": "String"
+			},
+			{
+				"name": "CUDT_OADDR3",
+				"type": "String"
+			},
+			{
+				"name": "CUDT_OPIN_CODE",
+				"type": "String"
+			},
+			{
+				"name": "CUDT_OLCTY_CODE",
+				"type": "String"
+			},
+			{
+				"name": "CUDT_OEXTNG_FLEET_SIZE",
+				"type": "String"
+			},
+			{
+				"name": "CUDT_OHEAD_OFCE_LCTN_CODE",
+				"type": "String"
+			},
+			{
+				"name": "CUDT_OSLRY_STR_CODE",
+				"type": "String"
+			},
+			{
+				"name": "CUDT_OPMNT_RLSE_LCTN_CODE",
+				"type": "String"
+			},
+			{
+				"name": "CUDT_CRTE_DTIME",
+				"type": "String"
+			},
+			{
+				"name": "CUDT_CRTE_EMP_NO",
+				"type": "String"
+			},
+			{
+				"name": "CUDT_UPDT_DTIME",
+				"type": "String"
+			},
+			{
+				"name": "CUDT_UPDT_EMP_NO",
+				"type": "String"
+			},
+			{
+				"name": "CUDT_INCOMME",
+				"type": "String"
+			},
+			{
+				"name": "ACDM_CAREER_CODE",
+				"type": "String"
+			},
+			{
+				"name": "JODIAC_CODE",
+				"type": "String"
+			},
+			{
+				"name": "MTRL_STAUS",
+				"type": "String"
+			},
+			{
+				"name": "CMPN_PHONE_NO",
+				"type": "String"
+			},
+			{
+				"name": "CUDT_HOBBY_CODE",
+				"type": "String"
+			},
+			{
+				"name": "CUDT_DLR_CODE",
+				"type": "String"
+			},
+			{
+				"name": "SALUT_CODE",
+				"type": "String"
+			},
+			{
+				"name": "CUDT_SPORT",
+				"type": "String"
+			},
+			{
+				"name": "CUDT_NEWS",
+				"type": "String"
+			},
+			{
+				"name": "CUDT_CNTTYPE",
+				"type": "String"
+			},
+			{
+				"name": "CUDT_CNTDAY",
+				"type": "String"
+			},
+			{
+				"name": "CUDT_CNTTIME",
+				"type": "String"
+			},
+			{
+				"name": "CUDT_INDUSTRY",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

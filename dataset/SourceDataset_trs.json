@@ -1,0 +1,100 @@
+{
+	"name": "SourceDataset_trs",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "Customer_Master.csv",
+				"container": "master"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Cust_Company_No.",
+				"type": "String"
+			},
+			{
+				"name": "Cust_Corporation_No.",
+				"type": "String"
+			},
+			{
+				"name": "Cust_Link_Key",
+				"type": "String"
+			},
+			{
+				"name": "Cust_Trader_No",
+				"type": "String"
+			},
+			{
+				"name": "Cust_Customer_No",
+				"type": "String"
+			},
+			{
+				"name": "Cust_Customer_Full_Name",
+				"type": "String"
+			},
+			{
+				"name": "Customer_Email",
+				"type": "String"
+			},
+			{
+				"name": "CSPM_CRTE_DTIME",
+				"type": "String"
+			},
+			{
+				"name": "CSPM_CRTE_EMP_NO",
+				"type": "String"
+			},
+			{
+				"name": "CSPM_UPDT_EMP_NO",
+				"type": "String"
+			},
+			{
+				"name": "Customer_Mobile_No",
+				"type": "String"
+			},
+			{
+				"name": "SEQ_NO",
+				"type": "String"
+			},
+			{
+				"name": "Customer_State_Code",
+				"type": "String"
+			},
+			{
+				"name": "Customer_City_Code",
+				"type": "String"
+			},
+			{
+				"name": "TSIL_CODE",
+				"type": "String"
+			},
+			{
+				"name": "PIN_CODE",
+				"type": "String"
+			},
+			{
+				"name": "VILL_NAME",
+				"type": "String"
+			},
+			{
+				"name": "CRTE_EMP_NO",
+				"type": "String"
+			},
+			{
+				"name": "DSTRT_CODE",
+				"type": "String"
+			}
+		]
+	}
+}

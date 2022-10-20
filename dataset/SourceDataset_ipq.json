@@ -1,0 +1,80 @@
+{
+	"name": "SourceDataset_ipq",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "Trader_Master.csv",
+				"container": "master"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Trader_No",
+				"type": "String"
+			},
+			{
+				"name": "Trader_Code",
+				"type": "String"
+			},
+			{
+				"name": "Company_No.",
+				"type": "String"
+			},
+			{
+				"name": "Corporation_No.",
+				"type": "String"
+			},
+			{
+				"name": "Trader_Map_key",
+				"type": "String"
+			},
+			{
+				"name": "TRD_ORG_DSCTN",
+				"type": "String"
+			},
+			{
+				"name": "TRD_MNGR_NAME",
+				"type": "String"
+			},
+			{
+				"name": "Trader_Email",
+				"type": "String"
+			},
+			{
+				"name": "Trader_Name",
+				"type": "String"
+			},
+			{
+				"name": "Trader_State",
+				"type": "String"
+			},
+			{
+				"name": "Trader_City",
+				"type": "String"
+			},
+			{
+				"name": "Trader_Region",
+				"type": "String"
+			},
+			{
+				"name": "Traders",
+				"type": "String"
+			},
+			{
+				"name": "Area Manager",
+				"type": "String"
+			}
+		]
+	}
+}

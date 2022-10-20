@@ -1,0 +1,226 @@
+{
+	"name": "empCopyPipeline_smj",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy_smj",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "master//Employee_Master.csv"
+					},
+					{
+						"name": "Destination",
+						"value": "dbo.Employee_Master"
+					}
+				],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings",
+							"skipLineCount": 0
+						}
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"tableOption": "autoCreate"
+					},
+					"enableStaging": false,
+					"validateDataConsistency": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "EMPM_CMPN_NO",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "EMPM_CMPN_NO",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "EMPM_CORP_NO",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "EMPM_CORP_NO",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Trader_No",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Trader_No",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Employee_No",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Employee_No",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Employee Type",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Employee Type",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Employee_Name",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Employee_Name",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Employee_Email",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Employee_Email",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Employee Gender",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Employee Gender",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Employee Designation",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Employee Designation",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "EMPM_CRTE_EMP_NO",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "EMPM_CRTE_EMP_NO",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "EMPM_CRTE_DTIME",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "EMPM_CRTE_DTIME",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Area of Work",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Area of Work",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Active/Inactive",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Active/Inactive",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Employee Category",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Employee Category",
+									"type": "String"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "SourceDataset_smj",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DestinationDataset_smj",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": []
+	}
+}

@@ -1,0 +1,9 @@
+{
+	"name": "LeadFactory01",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "757720f4-a6ff-4c97-bbef-446639f7a14c",
+		"tenantId": "57e6c32d-64fe-4fcb-b796-46b6c40eb91d"
+	}
+}

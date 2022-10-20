@@ -1,0 +1,137 @@
+{
+	"name": "EQFU",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_ADLS",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "Stage1_Sales_CRM_SCEQFU_TB.csv",
+				"fileSystem": "leadrawdata"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "EQFU_DLR_NO",
+				"type": "String"
+			},
+			{
+				"name": "EQFU_ENQRY_NO",
+				"type": "String"
+			},
+			{
+				"name": "EQFU_SEQ",
+				"type": "String"
+			},
+			{
+				"name": "EQFU_CORP_NO",
+				"type": "String"
+			},
+			{
+				"name": "EQFU_CMPN_NO",
+				"type": "String"
+			},
+			{
+				"name": "EQFU_DATE",
+				"type": "String"
+			},
+			{
+				"name": "EQFU_TIME",
+				"type": "String"
+			},
+			{
+				"name": "EQFU_NTFU_DATE",
+				"type": "String"
+			},
+			{
+				"name": "EQFU_NTFU_TIME",
+				"type": "String"
+			},
+			{
+				"name": "EQFU_NTFU_DONE_YN",
+				"type": "String"
+			},
+			{
+				"name": "EQFU_AFTR_ENQRY_TYPE",
+				"type": "String"
+			},
+			{
+				"name": "EQFU_BFRE_ENQRY_TYPE",
+				"type": "String"
+			},
+			{
+				"name": "EQFU_RMRKS",
+				"type": "String"
+			},
+			{
+				"name": "EQFU_CRTE_DTIME",
+				"type": "String"
+			},
+			{
+				"name": "EQFU_CRTE_EMP_NO",
+				"type": "String"
+			},
+			{
+				"name": "EQFU_UPDT_DTIME",
+				"type": "String"
+			},
+			{
+				"name": "EQFU_UPDT_EMP_NO",
+				"type": "String"
+			},
+			{
+				"name": "EQFU_OTHER_CMTD_RMRKS",
+				"type": "String"
+			},
+			{
+				"name": "EQFU_SCHME_RMRKS",
+				"type": "String"
+			},
+			{
+				"name": "EQFU_MNGER_CALL_DATE",
+				"type": "String"
+			},
+			{
+				"name": "EQFU_MNGER_REMRKS",
+				"type": "String"
+			},
+			{
+				"name": "EQFU_ACTIVE_YN",
+				"type": "String"
+			},
+			{
+				"name": "EQFU_STEP_CODE",
+				"type": "String"
+			},
+			{
+				"name": "EQFU_SR_NUM",
+				"type": "String"
+			},
+			{
+				"name": "EQFU_FLUP_TYPE",
+				"type": "String"
+			},
+			{
+				"name": "EQFU_VERIFI_YN",
+				"type": "String"
+			},
+			{
+				"name": "EQFU_NTFU_TYPE",
+				"type": "String"
+			},
+			{
+				"name": "INFECT_RSON",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,81 @@
+{
+	"name": "UCMODL",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_ADLS",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "Stage1_SAL_UCMODL_TB.csv",
+				"fileSystem": "leadrawdata"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "MODL_CMPN_NO",
+				"type": "String"
+			},
+			{
+				"name": "MODL_CORP_NO",
+				"type": "String"
+			},
+			{
+				"name": "MODL_MAKER_CODE",
+				"type": "String"
+			},
+			{
+				"name": "MODL_MODEL_CODE",
+				"type": "String"
+			},
+			{
+				"name": "MODL_FULL_DSCTN",
+				"type": "String"
+			},
+			{
+				"name": "MODL_SHORT_DSCTN",
+				"type": "String"
+			},
+			{
+				"name": "MODL_VHCL_TYPE",
+				"type": "String"
+			},
+			{
+				"name": "MODL_DELT_YN",
+				"type": "String"
+			},
+			{
+				"name": "MODL_PRIORITY",
+				"type": "String"
+			},
+			{
+				"name": "MODL_CRTE_DTIME",
+				"type": "String"
+			},
+			{
+				"name": "MODL_CRTE_EMP_NO",
+				"type": "String"
+			},
+			{
+				"name": "MODL_UPDT_DTIME",
+				"type": "String"
+			},
+			{
+				"name": "MODL_UPDT_EMP_NO",
+				"type": "String"
+			},
+			{
+				"name": "MODL_AVAILABLE_NEW_CAR",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

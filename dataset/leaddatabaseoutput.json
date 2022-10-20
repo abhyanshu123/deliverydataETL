@@ -1,0 +1,16 @@
+{
+	"name": "leaddatabaseoutput",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "leadSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "leadoutput"
+		}
+	}
+}
