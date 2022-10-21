@@ -1,0 +1,16 @@
+{
+	"name": "DestinationDataset_mps",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Azure_Final_Master_Calender"
+		}
+	}
+}

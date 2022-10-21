@@ -1,0 +1,97 @@
+{
+	"name": "SourceDataset_2bu",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "CalenderExported.csv",
+				"folderPath": "datamodeldata",
+				"container": "salesprojectdata"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "DateKey",
+				"type": "String"
+			},
+			{
+				"name": "Date",
+				"type": "String"
+			},
+			{
+				"name": "FullDate",
+				"type": "String"
+			},
+			{
+				"name": "DayName",
+				"type": "String"
+			},
+			{
+				"name": "Month",
+				"type": "String"
+			},
+			{
+				"name": "MonthName",
+				"type": "String"
+			},
+			{
+				"name": "Quarter",
+				"type": "String"
+			},
+			{
+				"name": "QuarterName",
+				"type": "String"
+			},
+			{
+				"name": "Year",
+				"type": "String"
+			},
+			{
+				"name": "YearName",
+				"type": "String"
+			},
+			{
+				"name": "MonthYear",
+				"type": "String"
+			},
+			{
+				"name": "MMYYYY",
+				"type": "String"
+			},
+			{
+				"name": "FiscalDayOfYear",
+				"type": "String"
+			},
+			{
+				"name": "FiscalMonth",
+				"type": "String"
+			},
+			{
+				"name": "FiscalQuarter",
+				"type": "String"
+			},
+			{
+				"name": "FiscalQuarterName",
+				"type": "String"
+			},
+			{
+				"name": "FiscalYear",
+				"type": "String"
+			},
+			{
+				"name": "FiscalMonthYear",
+				"type": "String"
+			}
+		]
+	}
+}

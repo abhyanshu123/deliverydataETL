@@ -1,0 +1,270 @@
+{
+	"name": "TraderCopyPipeline_pcs",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy_pcs",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "salesprojectdata/datamodeldata/Trader_Master.csv"
+					},
+					{
+						"name": "Destination",
+						"value": "dbo.Trader_Master"
+					}
+				],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings",
+							"skipLineCount": 0
+						}
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"tableOption": "autoCreate"
+					},
+					"enableStaging": false,
+					"validateDataConsistency": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "Trader_No",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Trader_No",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Trader_Code",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Trader_Code",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Group_Trader_Code",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Group_Trader_Code",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Company_No.",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Company_No.",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Corporation_No.",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Corporation_No.",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Trader_Map_Key",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Trader_Map_Key",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "TRD_ORG_DSCTN",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TRD_ORG_DSCTN",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "TRD_MNGR_NAME",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TRD_MNGR_NAME",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Trader_Email",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Trader_Email",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Trader_Name",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Trader_Name",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Trader_State",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Trader_State",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Trader_City",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Trader_City",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Trader_Region",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Trader_Region",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "TRD_Main_Dealer",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TRD_Main_Dealer",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Traders",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Traders",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Area_Manager",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Area_Manager",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "TRD_SPR_TRD_CODE",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TRD_SPR_TRD_CODE",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "TRD_DSCTN",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TRD_DSCTN",
+									"type": "String"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "SourceDataset_pcs",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DestinationDataset_pcs",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": []
+	}
+}

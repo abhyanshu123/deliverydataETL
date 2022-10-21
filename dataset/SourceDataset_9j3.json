@@ -1,0 +1,49 @@
+{
+	"name": "SourceDataset_9j3",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "Lost_Orders.csv",
+				"folderPath": "Transaction_Tb",
+				"container": "salesprojectdata"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Order_No",
+				"type": "String"
+			},
+			{
+				"name": "Order_Date",
+				"type": "String"
+			},
+			{
+				"name": "Lead_No",
+				"type": "String"
+			},
+			{
+				"name": "Trader_No",
+				"type": "String"
+			},
+			{
+				"name": "Lost_Order_Date",
+				"type": "String"
+			},
+			{
+				"name": "LOSS_DUETO_Reason",
+				"type": "String"
+			}
+		]
+	}
+}
