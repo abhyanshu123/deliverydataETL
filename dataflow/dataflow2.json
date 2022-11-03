@@ -1,0 +1,79 @@
+{
+	"name": "dataflow2",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "Lead_dataset",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "Lead_SQL_Dataset",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [],
+			"scriptLines": [
+				"source(output(",
+				"          Trader_No as string,",
+				"          Lead_No as string,",
+				"          Corporation_No as string,",
+				"          Company_No as string,",
+				"          Link_Date as string,",
+				"          Lead_Date as string,",
+				"          Lead_Stat as string,",
+				"          Lead_Emp_No as string,",
+				"          Lead_Crte_Dtime as string,",
+				"          Lead_Source_Type as string,",
+				"          Allocated_Unallocated as string,",
+				"          Flag as string,",
+				"          Lead_Status as string,",
+				"          Lead_Category_Type as string,",
+				"          Lead_Sub_Source_Name as string,",
+				"          Lead_Source as string,",
+				"          Open_Close_Flag as string,",
+				"          Lead_Type as string,",
+				"          Customer_No as string,",
+				"          Prod_Full_Dstn as string,",
+				"          Category_Code as string,",
+				"          Product_Code as string,",
+				"          Lead_Qty as string,",
+				"          Team_Leader_Name as string,",
+				"          Team_Leader_Code as string,",
+				"          Active_Inactive as string,",
+				"          Order_No as string,",
+				"          Order_Date as string,",
+				"          Invoice_No as string,",
+				"          Invoice_Confirmation_Date as string,",
+				"          Invoice_Date as string,",
+				"          Delivery_Date as string,",
+				"          Price as string,",
+				"          Invoice_Type_Name as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     partitionBy('hash', 1)) ~> source1",
+				"source1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError') ~> sink1"
+			]
+		}
+	}
+}
