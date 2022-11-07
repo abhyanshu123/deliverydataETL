@@ -1,0 +1,241 @@
+{
+	"name": "SourceDataset_31v",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "Transaction (1).csv",
+				"folderPath": "Transaction_Tb",
+				"container": "salesprojectdata"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Trader_No",
+				"type": "String"
+			},
+			{
+				"name": "Lead_No",
+				"type": "String"
+			},
+			{
+				"name": "Corporation_No",
+				"type": "String"
+			},
+			{
+				"name": "Company_No",
+				"type": "String"
+			},
+			{
+				"name": "Link_Date",
+				"type": "String"
+			},
+			{
+				"name": "Lead_Date",
+				"type": "String"
+			},
+			{
+				"name": "Lead_Stat",
+				"type": "String"
+			},
+			{
+				"name": "Lead_Emp_No",
+				"type": "String"
+			},
+			{
+				"name": "Lead_Crte_Dtime",
+				"type": "String"
+			},
+			{
+				"name": "Lead_Source_Type",
+				"type": "String"
+			},
+			{
+				"name": "Allocated_Unallocated",
+				"type": "String"
+			},
+			{
+				"name": "Flag",
+				"type": "String"
+			},
+			{
+				"name": "Lead_Status",
+				"type": "String"
+			},
+			{
+				"name": "Lead_Category_Type",
+				"type": "String"
+			},
+			{
+				"name": "Lead_Sub_Source_Name",
+				"type": "String"
+			},
+			{
+				"name": "Lead_Source",
+				"type": "String"
+			},
+			{
+				"name": "Open_Close_Flag",
+				"type": "String"
+			},
+			{
+				"name": "Lead_Type",
+				"type": "String"
+			},
+			{
+				"name": "Customer_No",
+				"type": "String"
+			},
+			{
+				"name": "Prod_Full_Dstn",
+				"type": "String"
+			},
+			{
+				"name": "Category_Code",
+				"type": "String"
+			},
+			{
+				"name": "Product_Code",
+				"type": "String"
+			},
+			{
+				"name": "Lead_Qty",
+				"type": "String"
+			},
+			{
+				"name": "Team_Leader_Name",
+				"type": "String"
+			},
+			{
+				"name": "Team_Leader_Code",
+				"type": "String"
+			},
+			{
+				"name": "Active_Inactive",
+				"type": "String"
+			},
+			{
+				"name": "Order_No",
+				"type": "String"
+			},
+			{
+				"name": "Order_Date",
+				"type": "String"
+			},
+			{
+				"name": "Invoice_No",
+				"type": "String"
+			},
+			{
+				"name": "Invoice_Confirmation_Date",
+				"type": "String"
+			},
+			{
+				"name": "Invoice_Date",
+				"type": "String"
+			},
+			{
+				"name": "Delivery_Date",
+				"type": "String"
+			},
+			{
+				"name": "Price",
+				"type": "String"
+			},
+			{
+				"name": "Invoice_Type_Name",
+				"type": "String"
+			},
+			{
+				"name": "ORD_EMP_NO",
+				"type": "String"
+			},
+			{
+				"name": "ORD_CRTE_DTIME",
+				"type": "String"
+			},
+			{
+				"name": "Order_Amt",
+				"type": "String"
+			},
+			{
+				"name": "Order_Source",
+				"type": "String"
+			},
+			{
+				"name": "Order_Source_Type",
+				"type": "String"
+			},
+			{
+				"name": "Order_Status",
+				"type": "String"
+			},
+			{
+				"name": "Order_Qty",
+				"type": "String"
+			},
+			{
+				"name": "INVC_TYPE",
+				"type": "String"
+			},
+			{
+				"name": "ORD_BILL_TO_STATE",
+				"type": "String"
+			},
+			{
+				"name": "ORD_BILL_TO_CITY",
+				"type": "String"
+			},
+			{
+				"name": "ORD_Cncl_Date",
+				"type": "String"
+			},
+			{
+				"name": "ORD_EXPCT_DLVRY_DATE",
+				"type": "String"
+			},
+			{
+				"name": "Delivered_Not_Delivered_Flag",
+				"type": "String"
+			},
+			{
+				"name": "ORD_HYPO_NAME",
+				"type": "String"
+			},
+			{
+				"name": "INVC_CRTE_DTIME",
+				"type": "String"
+			},
+			{
+				"name": "INVC_CRTE_EMP_NO",
+				"type": "String"
+			},
+			{
+				"name": "Lead_SRC_Code",
+				"type": "String"
+			},
+			{
+				"name": "Lead_Sub_Source_Code",
+				"type": "String"
+			},
+			{
+				"name": "Lost_Order_Date",
+				"type": "String"
+			},
+			{
+				"name": "LOSS_DUETO_Reason",
+				"type": "String"
+			}
+		]
+	}
+}
